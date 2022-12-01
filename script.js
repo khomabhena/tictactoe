@@ -1,9 +1,9 @@
 let isPlayerOne = true
 
-const Game = () => {
+const GameBoard = () => {
     const winningIndexes = [[0, 1, 2], [0, 4, 8], [0, 3, 6], [1, 4, 7], [2, 4, 6], [2, 5, 8], [3, 4, 5], [6, 7, 8]]
-    const playerOne = []
-    const playerTwo = []
+    var playerOne = []
+    var playerTwo = []
 
     const play = (index) => {
         if (isPlayerOne)
@@ -14,6 +14,7 @@ const Game = () => {
         isPlayerOne = !isPlayerOne
 
         checkWin()
+        Elements().setCurrentPlayer()
     }
 
     const checkWin = () => {
@@ -47,6 +48,8 @@ const Game = () => {
         playerOne = []
         playerTwo = []
         isPlayerOne = true
+
+        Elements().clearGameBoard()
     }
 
     return { play }
@@ -67,10 +70,41 @@ const Elements = () => {
         }
     }
 
-    
+    const getAllSquares = () => {
+        const squares = document.querySelectorAll('.square')
 
-    return { setCurrentPlayer }
+        return squares
+    }
+
+    const setSquareClickListener = () => {
+        const squares = getAllSquares()
+        const gameBoard = GameBoard()
+
+        squares.forEach((square, index) => {
+            square.addEventListener('click', e => {
+                setSquareContent(square, isPlayerOne)
+                gameBoard.play(index)
+            })
+        })
+    }
+
+    const setSquareContent = (square, isPlayerOne) => {
+        if (isPlayerOne) 
+            square.textContent = 'X'
+        else
+            square.textContent = 'O'
+    }
+
+    const clearGameBoard = () => {
+        const squares = getAllSquares()
+        squares.forEach(square => {
+            square.textContent = ''
+        })
+    }
+
+    return { setCurrentPlayer, setSquareClickListener, clearGameBoard }
 }
 
 Elements().setCurrentPlayer()
+Elements().setSquareClickListener()
 
