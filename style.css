@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@400;700&family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Mulish:wght@200;300;400;500;600;800;900&family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Nunito:wght@400;500&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    margin: 3rem auto;
+    width: 80%;
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    border: 1px solid lightgrey;
+    border-radius: 12px;
+}
+
+.players, .resetButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid lightgrey; */
+    gap: 1rem;
+}
+
+.logo {
+    position: absolute;
+    left: 2rem;
+}
+
+.name {
+    position: absolute;
+    right: 2rem;
+    font-weight: 100;
+    color: grey;
+    font-size: 1.5rem;
+}
+
+.playerOne, .playerTwo {
+    border: 1px solid lightgrey;
+    padding: .5rem 1rem;
+    border-radius: 32px;
+    font-size: 1.2rem;
+    font-weight: 200;
+    cursor: pointer;
+}
+.selectedPlayer {
+    border: 1px solid lightgrey;
+    padding: .5rem 1rem;
+    border-radius: 32px;
+    background-color: teal;
+    color: white;
+    font-weight: 400;
+}
+
+.gameBoard {
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    /* width: 80%; */
+    grid-template-columns: repeat(3, 100px);
+    grid-auto-rows: 100px;
+    margin: 2rem auto;
+}
+
+.board > div {
+    border: 1px solid lightslategrey;
+    /* margin: 6px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.board :nth-child(1) {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.board :nth-child(2) {
+    border-top: none;
+    border-right: none;
+}
+
+.board :nth-child(3) {
+    border-top: none;
+    border-right: none;
+}
+
+.board :nth-child(4) {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.board :nth-child(5) {
+    border-top: none;
+    border-right: none;
+}
+
+.board :nth-child(6) {
+    border-top: none;
+    border-right: none;
+}
+
+.board :nth-child(7) {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+}
+
+.board :nth-child(8) {
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.board :nth-child(9) {
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.resetButton {
+    cursor: pointer;
+    font-weight: 600;
+}
