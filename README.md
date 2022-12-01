@@ -15,6 +15,12 @@
 7. 3 4 5
 8. 6 7 8
 
+### GAME LOGIC
+1. After each play check if there is a winner
+2. Run the winning indexes array and check if player has got all the winning indexes  
+3. The winningIndexes array should be a multi dimensional array.
+4. Store player indexes in an array
+
 #### How the Game is played
 1. If a user selects 3 rows, straight or diagonal, that's a win
 2. Players take chances to play, one turn each
