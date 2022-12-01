@@ -28,10 +28,21 @@ const Game = () => {
                 return
             }
         })
+        checkStaleMate()
+    }
+
+    const checkStaleMate = () => {
+        if ((playerOne.length === 5 && playerTwo.length === 4) || 
+            (playerOne.length === 4 && playerTwo.length === 5)) {
+            setWinner(0)
+        }
     }
 
     const setWinner = (winner) => {
-        console.log(`The winner is ${winner}`)
+        if (winner === 0)
+            console.log('Stalemate')
+        else
+            console.log(`The winner is ${winner}`)
         playerOne = []
         playerTwo = []
         isPlayerOne = true
