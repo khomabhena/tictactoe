@@ -42,7 +42,7 @@ const Game = () => {
         if (winner === 0)
             console.log('Stalemate')
         else
-            console.log(`The winner is ${winner}`)
+        console.log(`The winner is ${winner}`)
         playerOne = []
         playerTwo = []
         isPlayerOne = true
