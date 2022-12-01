@@ -1,9 +1,9 @@
 let isPlayerOne = true
+var playerOne = []
+var playerTwo = []
 
 const GameBoard = () => {
     const winningIndexes = [[0, 1, 2], [0, 4, 8], [0, 3, 6], [1, 4, 7], [2, 4, 6], [2, 5, 8], [3, 4, 5], [6, 7, 8]]
-    var playerOne = []
-    var playerTwo = []
 
     const play = (index) => {
         if (isPlayerOne)
@@ -41,11 +41,13 @@ const GameBoard = () => {
     }
 
     const setWinner = (winner) => {
+        const elements = Elements()
         if (winner === 0)
-            console.log('Stalemate')
+            elements.setAnnouncement("It's a draw")
+        else if (winner === 1)
+            elements.setAnnouncement("The winner is Player One(X)")
         else
-        console.log(`The winner is ${winner}`)
-        clearGameBoard()
+            elements.setAnnouncement("The winner is Player Two(O)")
     }
 
     const clearGameBoard = () => {
@@ -106,9 +108,27 @@ const Elements = () => {
         })
     }
 
-    return { setCurrentPlayer, setSquareClickListener, clearGameBoard }
+    const setAnnouncement = (message) => {
+        const announcement = document.querySelector('.announcement')
+        announcement.style.display = 'flex'
+        announcement.textContent = message
+    }
+
+    return { setCurrentPlayer, setSquareClickListener, clearGameBoard, setAnnouncement }
 }
 
 Elements().setCurrentPlayer()
 Elements().setSquareClickListener()
 
+const announcement = document.querySelector('.announcement')
+announcement.style.display = 'none'
+announcement.addEventListener('click', e => {
+    announcement.style.display = 'none'
+    GameBoard().clearGameBoard()
+    Elements().setCurrentPlayer()
+})
+const reset = document.querySelector('.resetButton')
+reset.addEventListener('click', e => {
+    GameBoard().clearGameBoard()
+    Elements().setCurrentPlayer()
+})
