@@ -45,6 +45,10 @@ const GameBoard = () => {
             console.log('Stalemate')
         else
         console.log(`The winner is ${winner}`)
+        clearGameBoard()
+    }
+
+    const clearGameBoard = () => {
         playerOne = []
         playerTwo = []
         isPlayerOne = true
@@ -52,7 +56,7 @@ const GameBoard = () => {
         Elements().clearGameBoard()
     }
 
-    return { play }
+    return { play, clearGameBoard }
 }
 
 const Elements = () => {
