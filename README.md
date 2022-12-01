@@ -29,4 +29,5 @@
 7. Record the wins in the results array
 8. Store plays in a string
 9. Store winning indexes in a string array
-10. After every play check if player string indexes are included in the array 
+10. After every play check if player string indexes are included in the array
+11. Sort indexes before comparing
