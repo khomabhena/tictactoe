@@ -1,8 +1,9 @@
+let isPlayerOne = true
+
 const Game = () => {
     const winningIndexes = [[0, 1, 2], [0, 4, 8], [0, 3, 6], [1, 4, 7], [2, 4, 6], [2, 5, 8], [3, 4, 5], [6, 7, 8]]
     const playerOne = []
     const playerTwo = []
-    let isPlayerOne = true
 
     const play = (index) => {
         if (isPlayerOne)
@@ -47,5 +48,29 @@ const Game = () => {
         playerTwo = []
         isPlayerOne = true
     }
+
+    return { play }
 }
+
+const Elements = () => {
+
+    const setCurrentPlayer = () => {
+        const playerOne = document.querySelector('.playerOne')
+        const playerTwo = document.querySelector('.playerTwo')
+    
+        if (isPlayerOne) {
+            playerOne.classList.toggle('selectedPlayer')
+            playerTwo.classList.remove('selectedPlayer')
+        } else {
+            playerTwo.classList.toggle('selectedPlayer')
+            playerOne.classList.remove('selectedPlayer')
+        }
+    }
+
+    
+
+    return { setCurrentPlayer }
+}
+
+Elements().setCurrentPlayer()
 
